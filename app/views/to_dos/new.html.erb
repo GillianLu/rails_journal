@@ -1,0 +1,12 @@
+<%= render "categories/sidebar" %>
+
+
+<div class="form-container">
+    <div class="form-content">
+        <%= link_to "Back", categories_path %>
+        <h2>Add a to do</h2>
+        <%= render "to_dos/form", category: @category %>        
+    </div>
+
+     
+</div>

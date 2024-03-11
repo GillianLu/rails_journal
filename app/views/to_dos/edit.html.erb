@@ -1,0 +1,26 @@
+<%= render "categories/sidebar" %>
+
+
+<div class="form-container">
+  <div class="form-content ">
+    <h1>Edit ToDo</h1>
+    <%= form_with model: [@category, @to_do], local: true do |form| %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+
+      <%= form.label :start %>
+      <%= form.date_field :start %>
+
+      <%= form.label :deadline %>
+      <%= form.date_field :deadline %>
+
+      <%= form.label :completed %>
+      <%= form.check_box :completed %>
+
+      <%= form.submit "Update ToDo" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  start: 2024-02-26 08:29:46
+  deadline: 2024-02-26 08:29:46
+  completed: false
+
+two:
+  title: MyString
+  description: MyText
+  start: 2024-02-26 08:29:46
+  deadline: 2024-02-26 08:29:46
+  completed: false

@@ -1,0 +1,34 @@
+<h2>ToDos</h2>
+
+<table class="todos-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start</th>
+      <th>Deadline</th>
+      <th>Completed</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @category.to_dos.each do |to_do| %>
+    <tr id="to_do_<%= to_do.id %>" class="<%= 'completed' if to_do.completed %>">
+      <td><%= to_do.title %></td>
+      <td><%= to_do.description %></td>
+      <td><%= to_do.start %></td>
+      <td><%= to_do.deadline %></td>
+      <td>
+        <%= form_with(model: [ @category, to_do ], url: toggle_completion_category_to_do_path(@category, to_do), method: :patch, local: false, id: "completed_form_#{to_do.id}") do |form| %>
+          <%= form.check_box :completed, checked: to_do.completed, class: "toggle-completion", data: { to_do_id: to_do.id } %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_category_to_do_path(@category, to_do) %>
+        <%= button_to 'Destroy', category_to_do_path(@category, to_do), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
