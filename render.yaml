@@ -1,0 +1,22 @@
+databases:
+  - name: rails_journal
+    databaseName: rails_journal
+    user: rails_journal
+    plan: free
+
+services:
+  - type: web
+    name: rails_journal
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rails_journal
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
